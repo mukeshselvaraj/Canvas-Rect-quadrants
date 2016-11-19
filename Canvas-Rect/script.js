@@ -47,16 +47,28 @@ function render() {
 
 	fillQuadrants();
 	context.stroke();
+
 }
 
 function fillQuadrants() {
 
 	//Row 1
+
 	context.fillStyle = '#b0e0e6';
 	context.fillRect(2, 2, 167, 147);
 
+	context.fillStyle = "black";
+	var text = "Income / Total Return";
+	context.font = '14px Segoe UI';
+	context.fillText(text, 25, 74);
+
 	context.fillStyle = '#ffb6c1';
 	context.fillRect(171.3, 2, 168, 147);
+
+	context.fillStyle = "black";
+	var text = "Income / Total Return";
+	context.font = '14px Segoe UI';
+	context.fillText(text, 185, 74);
 
 	context.fillStyle = '#fffacd';
 	context.fillRect(341, 2, 168, 147);
@@ -80,6 +92,18 @@ function fillQuadrants() {
 
 	context.fillStyle = '#b0e0e6';
 	context.fillRect(341, 301, 168, 148);
+
+	context.fillStyle = "#7cfc00";
+	context.globalAlpha = 0.5;
+	context.fillRect(151, 2, 40, h);
+	context.fillRect(321, 2, 40, h);
+	context.fillRect(2, 132, 149, 40);
+	context.fillRect(2, 281, 149, 40);
+	context.fillRect(191.3, 131, 130, 40);
+	context.fillRect(191.3, 281, 130, 40);
+	context.fillRect(361, 131, 150, 40);
+	context.fillRect(361, 281, 150, 40);
+
 }
 
 $(document).ready(function () {

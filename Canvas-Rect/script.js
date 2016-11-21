@@ -2,6 +2,7 @@ var canvas, context, columns = 3,
   rows = 3,
   w, h, tileWidth, tileHeight;
 
+
 function calcSize() {
 	canvas.width = 512;
 	canvas.height = 452;
@@ -45,9 +46,22 @@ function render() {
 		}
 	}
 
+
 	fillQuadrants();
 	context.stroke();
+	status_objects();
+	setTimeout(function () {
+		context.fillStyle = "#1e90ff";
+		context.font = '30px FontAwesome';// You can use any font size of your size.  
+		// Motorcycle Icon at x = 80(from the left) and y = 200(from the top)
+		context.fillText("\uf047", 80, 200);
 
+		context.font = '45px FontAwesome';
+		context.fillText("\uf04b", 90, 380);// Play Icon
+		context.fillText("\uf013", 140, 380);// Gear Icon
+		context.fillText("\uf1e0", 190, 380);// Share Icon
+
+	}, 1000);
 }
 
 function fillQuadrants() {
@@ -106,8 +120,33 @@ function fillQuadrants() {
 
 }
 
+function status_objects() {
+	//Circle	
+	context.beginPath();
+	context.globalAlpha = 1;
+	context.fillStyle = "#1e90ff";
+	context.arc(30, 30, 15, 0, 2 * Math.PI, true);
+	context.fill();
+	context.lineWidth = 2;
+	context.strokeStyle = '#000000';
+	context.stroke();
+}
+
+function registerEvents() {
+	$("#scatterPlot").mousedown(function (e) {
+		handleMouseDown(e);
+	});
+}
+
+function handleMouseDown(e) {
+	//context.globalCompositeOperation = 'destination-out'
+	//context.arc(30, 30, 15, 0, 2 * Math.PI * 2, true);
+	//context.fill();
+}
+
 $(document).ready(function () {
 	canvas = document.getElementById('scatterPlot');
 	context = canvas.getContext('2d');
 	calcSize();
+	registerEvents();
 });
